@@ -1,0 +1,44 @@
+tree - состав текущей директории в девовидном списке 
+stat filename - подробная информация по файлам и директориям
+
+find - рекурсивно показать все что в директории
+find . (тоже самое)
+find . -print (тоже самое)
+find /var/lock | less - отправить в less то что отработала команда find, дальше можно листать и искать
+find . -name "*.json" поиск файла(ов) по маске.
+find . -maxdepth 1 -name "*.json" управление грубиной поиска (вложенности директорий)
+find . - type d -name "first" - поиск только динекторий или f - файлов
+find . - type d -path ./second -prune -o -name "*.json" -print - исключить из поиска директорию second. Через -o можно добавлять доп условия
+директории можно исключать/искать по шаблону -name 
+find . -iname "*/JsOn"  поиск без учета регистра 
+Поиск файлов по аттрибутам (Modify/Access/Change/Birth)
+find . -type f -atime 0 искать файл по дате последнего открытия за последние 24 часа. +1 = сдвиг на 24 часа назад
+find . -type f -anewer filename Найти файлы доступ к которым осуществлялся позднее filename
+find . -type f -cnewer filename Найти файлы которые были изменены позднее чем filename
+find . -type f -size 140k найти файл определенного размена 
+find . -type f -size -150k -a -type f -size +130k найти файлы в диапазоне 130-150к 
+find . -type f -exec du -sh {} \; - выполнить команду с найденными файлами. В данном случае вывести их размер по шаблону 
+find . -type f -exec du -sh {} \; | sort -h - тоже самое только с сортировкой.
+find . -type f -exec du -sh {} \; | sort -h | tail -3 - тоже самое только показать последние 3 файла.
+find . -type f -exec du -sh {} \; | sort -h | head -3 - тоже самое только показать первые 3 файла.
+find . -type f -exec cat {} \; Вывести содержимое всех файлов 
+find . -type f -exec ls -la {} \; -exec cat {} \; -exec echo "------------" \; Тоже самое только с указанием принадлежности содержимого файлу и разделитель "------------"
+find . -type f -name "*.txt" -delete удаление найденных файлов. В данном случае всех с расширением txt
+
+
+grep search_pattern filename  поиска определенного текста или шаблона в файле
+grep -i holmes filename  Поиск без учета регистра
+grep -A 5 search_pattern filename   Показать строки до совпадающих 
+grep -B 5 search_pattern filename Показать строки после совпадающих
+grep -C 5 search_pattern filename Показать строки до и после совпадающих 
+grep -v search_pattern filename  Показать строки, которые не совпадают
+grep -c search_pattern filename  Подсчет количества совпадающих строк
+grep -n search_pattern filename   Показать номера совпадающих строк 
+grep search_pattern file1 file2  Поиск в нескольких файлах 
+grep search_pattern *.sh (искать строку только в скриптах оболочки (файлы, заканчивающиеся на .sh))
+grep -r search_pattern directory_path Рекурсивный поиск всех файлов в каталоге
+grep -l search_pattern files_pattern  Отображать только имена файлов 
+grep -l handbook *.md (посмотреть, какие файлы Markdown содержат слово “handbook”, вы можете использовать: )
+grep -w search_string file  Поиск по шаблонам регулярных выражений 
+grep 'pattern1\|pattern' filename Поиск того или иного шаблона
+grep -a pattern binary_file  Поиск в бинарниках
