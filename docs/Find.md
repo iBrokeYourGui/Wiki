@@ -23,27 +23,3 @@
 |```find . -type f -exec cat {} \;``` | Вывести содержимое всех файлов  ||
 |```find . -type f -exec ls -la {} \; -exec cat {} \; -exec echo "------------" \;``` | Тоже самое только с указанием принадлежности содержимого файлу и разделитель "------------" || 
 |```find . -type f -name "*.txt"``` | delete удаление найденных файлов. В данном случае всех с расширением txt  ||
-
-
-
-# Grep поиск по шаблонам
-
-| Команда              | Значение                               |
-| :------------------- | -------------------------------------- |
-|```grep search_pattern filename```| поиска определенного текста или шаблона в файле|
-|```grep -i holmes filename```| Поиск без учета регистра|
-|```grep -A 5 search_pattern filename```| Показать строки до совпадающих|
-|```grep -B 5 search_pattern filename```| Показать строки после совпадающих|
-|```grep -C 5 search_pattern filename```| Показать строки до и после совпадающих| 
-|```grep -v search_pattern filename```| Показать строки, которые не совпадают|
-|```grep -c search_pattern filename```| Подсчет количества совпадающих строк|
-|```grep -n search_pattern filename```| Показать номера совпадающих строк|
-|```grep search_pattern file1 file2```| Поиск в нескольких файлах|
-|```grep search_pattern *.sh```| искать строку только в скриптах оболочки (файлы, заканчивающиеся на .sh)|
-|```grep -r search_pattern directory_path```| Рекурсивный поиск всех файлов в каталоге| 
-|```grep -l search_pattern files_pattern```| Отображать только имена файлов|
-|```grep -l handbook *.md```| Посмотреть, какие файлы Markdown содержат слово “handbook”|
-|```grep -w search_string file```| Совпадение точного слова|
-|```grep -e regex file```| Поиск по шаблонам регулярных выражений|
-|```grep 'pattern1\|pattern' filename```| Поиск того или иного шаблона|
-|```grep -a pattern binary_file```| Поиск в бинарниках|  
