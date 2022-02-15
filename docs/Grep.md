@@ -20,7 +20,7 @@
 |```grep 'pattern1\|pattern' filename```| Поиск того или иного шаблона|
 |```grep -a pattern binary_file```| Поиск в бинарниках|  
 
-##Примеры
+## Примеры
 
 ```grep -P "\d{3}-\d{2}-\d{2}" filename > result.txt```
 
