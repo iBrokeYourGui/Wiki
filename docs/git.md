@@ -11,4 +11,3 @@
 И задаем удаленный репозиторий:
 `git remote set-url origin https://<username>:<personal_token>@github.com/<username>/<repo_name>.git`
 Если все сделал правильно команды `push` и `pull` будут работьа как часы.
-
