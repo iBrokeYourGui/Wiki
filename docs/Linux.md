@@ -5,6 +5,7 @@
 5) [GPG](/docs/Linux/GPG.md) - шифруемся!
 6) [WireGuard](/docs/Linux/WireGuard.md) - Настройте вашему ребенку VPN, а то чо он у вас как дебил?! 
 7) [SSH](/docs/Linux/ssh.md) - ssh доступ по ключам
-8) [tmux](/docs/Linux/tmux.md) - Разбей свой терминал на части
+8) [tmux](/docs/Linux/tmux.md) - Разбей свой терминал на окна
 9) [htop](/docs/Linux/htop.md) - Почувствуй себя владыкой процессов
 10) [nc (Net cat)](/docs/Linux/nc.md) - Когда надо погонять всякое по сети по-быстренькому.
+11) [jobs](/docs/Linux/jobs.md) - Управление задачами в одном окне без tmux
