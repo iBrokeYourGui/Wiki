@@ -1,7 +1,7 @@
 # Python
 
 [Косяк с таймзоной](#косяк-с-таймзоной)  
-[Не корректная работа multiprocessing.pool.Pool.starmap для длительных задач](#не-корректная-работа-multiprocessing.pool.Pool.starmap-для-длительных-задач)
+[Не корректная работа multiprocessing.pool.Pool.starmap для длительных задач](#не-корректная-работа-starmap-для-длительных-задач)
 
 
 ### Косяк с таймзоной
@@ -24,7 +24,7 @@ data
 ```
 Out[11]: datetime.datetime(2023, 3, 28, 0, 0, tzinfo=<DstTzInfo 'Europe/Moscow' MSK+3:00:00 STD>)  <---- Вот теперь все нормально. 
 
-### Не корректная работа multiprocessing.pool.Pool.starmap для длительных задач
+### Не корректная работа starmap для длительных задач
 
 В реализации multiprocessing.pool.Pool.starmap в python есть ошибка.
 при довольно больших длительностях задач в пуле, последние задачи запускаются не параллельно, а выстраиваются в очередь.  
