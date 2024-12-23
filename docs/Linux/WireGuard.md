@@ -19,10 +19,12 @@
 
 Далее лезем на сервер и начинаем настройку: `ssh root@<SERVER_IP>`  
 Обновим сервер Ububtu: `apt update && apt upgrade -y`  
-`apt install -y wireguard`
-`cd /etc/wireguard/`
-Генерим приватные ключи `wg genkey | tee /etc/wireguard/privatkey | wg pubkey | tee /etc/wireguard/publickey`  
-Отрубаем у всех доступ к ключу кроме себя `chmod 600 privatkey`  
+`apt install -y wireguard`  
+`cd /etc/wireguard/`  
+Генерим приватные ключи  
+`wg genkey | tee /etc/wireguard/privatkey | wg pubkey | tee /etc/wireguard/publickey`  
+Отрубаем у всех доступ к ключу кроме себя 
+`chmod 600 privatkey`  
 Создаем файл конфигурации WG сервера: `nano /etc/wireguard/wg0.conf` для извращенцев всегда есть `vim`  
 В файл вставляем вот такой текст:  
 ```
@@ -36,7 +38,7 @@ PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING 
 Примечание:  
 1) Если не корректно задать интерфейс в командах PostDown/PostUp то соединение будет устанавливаться успешно, 
 но трафик ходить не будет. 
-Чтобы этого избежать, предварительно проверьте название сетевого интерфейса с помощью `ifconfog -a` (предварительно поставьте net-wools `apt install net-tools`, в пустой Ubuntu его обычно нет).
+Чтобы этого избежать, предварительно проверьте название сетевого интерфейса с помощью `ifconfig -a` (предварительно поставьте net-wools `apt install net-tools`, в пустой Ubuntu его обычно нет).
 2) в инструкции написано что интерфейс WG можно задать как `%i`, но лучше захардкодить его значение `wg0`. 
 
 Чтобы перенаправлять трафик через WG сервер в интернет - нужно включить ip forwarding  
